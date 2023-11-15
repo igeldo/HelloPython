@@ -9,97 +9,27 @@ class TestPoint(TestCase):
     def setUp(self):
         self.cut = Point(2, 3)
 
-    def test_get_x(self):
-        # Act
-        result = self.cut.getX()
-
-        # Assert
-        self.assertEqual(2, result)
-
-    def test_get_y(self):
-        # Act
-        result = self.cut.getY()
-
-        # Assert
-        self.assertEqual(3, result)
-
     def test_str(self):
-        # Act
+        # act
         result = str(self.cut)
 
-        # Assert
+        # assert
         self.assertEqual("Point(2,3)", result)
 
     def test_add_succeeds_for_vector(self):
-        # Arrange
-        v = Vector(4, 5)
+        # arrange
+        other = Vector(4, 5)
 
-        # Act
-        result = self.cut + v
+        # act
+        result = self.cut + other
 
-        # Assert
+        # assert
         self.assertEqual(Point(6, 8), result)
 
     def test_add_fails_for_point(self):
-        # Arrange
-        p = Point(4, 5)
+        # arrange
+        other = Point(4, 5)
 
-        # Act & Assert
+        # act & assert
         with self.assertRaises(TypeError):
-            self.cut + p
-
-    def test_equal_gives_false_for_wrong_type(self):
-        # Arrange
-        v = Vector(3, 4)
-
-        # Act & Assert
-        self.assertFalse(self.cut == v)
-
-    def test_equal_gives_false_for_different_x(self):
-        # Arrange
-        p = Point(3, 3)
-
-        # Act & Assert
-        self.assertFalse(self.cut == p)
-
-    def test_equal_gives_false_for_different_y(self):
-        # Arrange
-        p = Point(2, 4)
-
-        # Act & Assert
-        self.assertFalse(self.cut == p)
-
-    def test_equal_gives_true_for_same_x_y(self):
-        # Arrange
-        p = Point(2, 3)
-
-        # Act & Assert
-        self.assertTrue(self.cut == p)
-
-    def test_not_equal_gives_true_for_wrong_type(self):
-        # Arrange
-        v = Vector(3, 4)
-
-        # Act & Assert
-        self.assertTrue(self.cut != v)
-
-    def test_not_equal_gives_true_for_different_x(self):
-        # Arrange
-        p = Point(42, 3)
-
-        # Act & Assert
-        self.assertTrue(self.cut != p)
-
-    def test_not_equal_gives_true_for_different_y(self):
-        # Arrange
-        p = Point(2, 42)
-
-        # Act & Assert
-        self.assertTrue(self.cut != p)
-
-    def test_not_equal_gives_false_for_same_x_y(self):
-        # Arrange
-        p = Point(2, 3)
-
-        # Act & Assert
-        self.assertFalse(self.cut != p)
+            self.cut + other
