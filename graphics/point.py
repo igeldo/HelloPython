@@ -23,7 +23,7 @@ class Point:
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
-            return self.getX() == other.getX()  and self.getY() == other.getY()
+            return self.getX() == other.getX() and self.getY() == other.getY()
         else:
             return False
 

@@ -14,14 +14,39 @@ class TestVector(TestCase):
         result = self.cut.getX()
 
         # Assert
-        self.assertEqual(result, 5)
+        self.assertEqual(5, result)
 
     def test_get_y(self):
         # Act
         result = self.cut.getY()
 
         # Assert
-        self.assertEqual(result, 6)
+        self.assertEqual(6, result)
+
+    def test_str(self):
+        # Act
+        result = str(self.cut)
+
+        # Assert
+        self.assertEqual("Vector(5,6)", result)
+
+    def test_add_succeeds_for_vector(self):
+        # Arrange
+        v = Vector(4, 5)
+
+        # Act
+        result = self.cut + v
+
+        # Assert
+        self.assertEqual(Vector(9, 11), result)
+
+    def test_add_fails_for_point(self):
+        # Arrange
+        p = Point(4, 5)
+
+        # Act & Assert
+        with self.assertRaises(TypeError):
+            self.cut + p
 
     def test_equal_gives_false_for_wrong_type(self):
         # Arrange
@@ -78,28 +103,3 @@ class TestVector(TestCase):
 
         # Act & Assert
         self.assertFalse(self.cut != v)
-
-    def test_str(self):
-        # Act
-        result = str(self.cut)
-
-        # Assert
-        self.assertEqual(result, "Vector(5,6)")
-
-    def test_add_succeeds_for_vector(self):
-        # Arrange
-        v = Vector(4, 5)
-
-        # Act
-        result = self.cut + v
-
-        # Assert
-        self.assertEqual(result, Vector(9, 11))
-
-    def test_add_fails_for_point(self):
-        # Arrange
-        p = Point(4, 5)
-
-        # Act & Assert
-        with self.assertRaises(TypeError):
-            self.cut + p

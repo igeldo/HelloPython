@@ -21,7 +21,7 @@ class TestPoint(TestCase):
         result = self.cut + v
 
         # Assert
-        self.assertEqual(result, Point(6, 8))
+        self.assertEqual(Point(6, 8), result)
         v.getX.assert_called_once()
         v.getY.assert_called_once()
 

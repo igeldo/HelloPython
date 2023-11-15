@@ -14,21 +14,21 @@ class TestPoint(TestCase):
         result = self.cut.getX()
 
         # Assert
-        self.assertEqual(result, 2)
+        self.assertEqual(2, result)
 
     def test_get_y(self):
         # Act
         result = self.cut.getY()
 
         # Assert
-        self.assertEqual(result, 3)
+        self.assertEqual(3, result)
 
     def test_str(self):
         # Act
         result = str(self.cut)
 
         # Assert
-        self.assertEqual(result, "Point(2,3)")
+        self.assertEqual("Point(2,3)", result)
 
     def test_add_succeeds_for_vector(self):
         # Arrange
@@ -38,7 +38,7 @@ class TestPoint(TestCase):
         result = self.cut + v
 
         # Assert
-        self.assertEqual(result, Point(6, 8))
+        self.assertEqual(Point(6, 8), result)
 
     def test_add_fails_for_point(self):
         # Arrange
