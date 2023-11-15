@@ -5,18 +5,14 @@ from graphics.vector import Vector
 class Main:
     def run(self):
         p = Point(1, 2)
-        print(p)
+        print(f"p: {p}")
 
-        v = Vector(3,4)
-        print(v)
+        v = Vector(3, 4)
+        print(f"v: {v}")
 
-        p2 = p + v
-        print (p2)
+        print(f"p + v: {p + v}")
+        print(f"v + v: {v + v}")
 
-        v2 = v +v
-        print(v2)
-
-        print(p+v2)
 
 if __name__ == '__main__':
     main = Main()
