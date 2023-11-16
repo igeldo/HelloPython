@@ -6,15 +6,15 @@ class Coordinate2D(ABC):
         self._x = x
         self._y = y
 
-    def getX(self) -> float:
+    def get_x(self) -> float:
         return self._x
 
-    def getY(self) -> float:
+    def get_y(self) -> float:
         return self._y
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):
-            return self.getX() == other.getX() and self.getY() == other.getY()
+            return self.get_x() == other.get_x() and self.get_y() == other.get_y()
         else:
             return False
 

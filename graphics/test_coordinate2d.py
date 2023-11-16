@@ -10,14 +10,14 @@ class TestCoordinate2D(TestCase):
 
     def test_get_x(self):
         # act
-        result = self.cut.getX()
+        result = self.cut.get_x()
 
         # assert
         self.assertEqual(2, result)
 
     def test_get_y(self):
         # act
-        result = self.cut.getY()
+        result = self.cut.get_y()
 
         # assert
         self.assertEqual(3, result)

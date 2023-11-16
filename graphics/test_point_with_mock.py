@@ -14,16 +14,16 @@ class TestPoint(TestCase):
         # arrange
         other = Mock()
         other.__class__ = Vector
-        other.getX.return_value = 4
-        other.getY.return_value = 5
+        other.get_x.return_value = 4
+        other.get_y.return_value = 5
 
         # act
         result = self.cut + other
 
         # assert
         self.assertEqual(Point(6, 8), result)
-        other.getX.assert_called_once()
-        other.getY.assert_called_once()
+        other.get_x.assert_called_once()
+        other.get_y.assert_called_once()
 
     def test_add_fails_for_point(self):
         # arrange

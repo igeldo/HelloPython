@@ -16,4 +16,4 @@ class Point(Coordinate2D):
         if not isinstance(other, Vector):
             raise TypeError("you can only add Vector to Point")
         else:
-            return Point(self.getX() + other.getX(), self.getY() + other.getY())
+            return Point(self.get_x() + other.get_x(), self.get_y() + other.get_y())

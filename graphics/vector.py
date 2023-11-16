@@ -15,4 +15,4 @@ class Vector(Coordinate2D):
         if not isinstance(other, Vector):
             raise TypeError("you can only add Vector to Vector")
         else:
-            return Vector(self.getX() + other.getX(), self.getY() + other.getY())
+            return Vector(self.get_x() + other.get_x(), self.get_y() + other.get_y())
