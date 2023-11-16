@@ -18,7 +18,7 @@ class TestPoint(TestCase):
 
     def test_add_succeeds_for_vector(self):
         # arrange
-        other = Vector(4, 5)
+        other: Vector = Vector(4, 5)
 
         # act
         result = self.cut + other
@@ -28,7 +28,7 @@ class TestPoint(TestCase):
 
     def test_add_fails_for_point(self):
         # arrange
-        other = Point(4, 5)
+        other: Point = Point(4, 5)
 
         # act & assert
         with self.assertRaises(TypeError):
