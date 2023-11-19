@@ -1,12 +1,30 @@
 from unittest import TestCase
 
-from graphics.coordinate2d import Coordinate2D
+from graphics.base.coordinate2d import Coordinate2D
 
 
 class TestCoordinate2D(TestCase):
 
     def setUp(self):
         self.cut = Coordinate2D(2, 3)
+
+    def test_init_fails_for_wrong_x_type(self):
+        # arrange
+        x = 'I am a string'
+        y = 42
+
+        # act & assert
+        with self.assertRaisesRegex(TypeError, 'x can only be a float or int'):
+            Coordinate2D(x, y)
+
+    def test_init_fails_for_wrong_y_type(self):
+        # arrange
+        x = 42
+        y = 'I am a string'
+
+        # act & assert
+        with self.assertRaisesRegex(TypeError, 'y can only be a float or int'):
+            Coordinate2D(x, y)
 
     def test_get_x(self):
         # act

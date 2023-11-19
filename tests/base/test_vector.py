@@ -1,7 +1,7 @@
 from unittest import TestCase
 
-from graphics.point import Point
-from graphics.vector import Vector
+from graphics.base.point import Point
+from graphics.base.vector import Vector
 
 
 class TestVector(TestCase):
@@ -14,7 +14,7 @@ class TestVector(TestCase):
         result = str(self.cut)
 
         # assert
-        self.assertEqual("Vector(5,6)", result)
+        self.assertEqual("Vector(5.0,6.0)", result)
 
     def test_add_succeeds_for_vector(self):
         # act

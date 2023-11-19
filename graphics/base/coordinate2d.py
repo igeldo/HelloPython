@@ -1,10 +1,10 @@
-from abc import ABC
+from graphics.base.util import check_float
 
 
-class Coordinate2D(ABC):
+class Coordinate2D:
     def __init__(self, x: float, y: float) -> None:
-        self._x = x
-        self._y = y
+        self._x = check_float(x, 'x')
+        self._y = check_float(y, 'y')
 
     def get_x(self) -> float:
         return self._x

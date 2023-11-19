@@ -1,8 +1,8 @@
 from unittest import TestCase
 from unittest.mock import Mock
 
-from graphics.point import Point
-from graphics.vector import Vector
+from graphics.base.point import Point
+from graphics.base.vector import Vector
 
 
 class TestPoint(TestCase):
