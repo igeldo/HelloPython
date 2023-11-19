@@ -57,6 +57,14 @@ cd <pfad_zu_src>/HelloPython
 source venv/bin/activate
 ```
 
+### Ausführen der Tests
+
+Ausführen aller Unit-Tests im Verzeichnis 'tests'
+
+```shell
+pytest
+```
+
 ### Ausführen des Programms
 
 ```shell
