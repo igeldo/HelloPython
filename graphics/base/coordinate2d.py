@@ -1,7 +1,9 @@
+from abc import ABC, abstractmethod
+
 from graphics.base.util import check_float
 
 
-class Coordinate2D:
+class Coordinate2D(ABC):
     def __init__(self, x: float, y: float) -> None:
         self._x = check_float(x, 'x')
         self._y = check_float(y, 'y')
@@ -11,6 +13,10 @@ class Coordinate2D:
 
     def get_y(self) -> float:
         return self._y
+
+    @abstractmethod
+    def __str__(self) -> str:
+        pass
 
     def __eq__(self, other) -> bool:
         if isinstance(other, self.__class__):
