@@ -22,7 +22,7 @@ class TestCoordinate2D(TestCase):
         y = 42
 
         # act & assert
-        with self.assertRaisesRegex(TypeError, 'x can only be a float or int'):
+        with self.assertRaisesRegex(TypeError, '^x can only be a float or int$'):
             Coordinate2DForTest(x, y)
 
     def test_init_fails_for_wrong_y_type(self):
@@ -31,7 +31,7 @@ class TestCoordinate2D(TestCase):
         y = 'I am a string'
 
         # act & assert
-        with self.assertRaisesRegex(TypeError, 'y can only be a float or int'):
+        with self.assertRaisesRegex(TypeError, '^y can only be a float or int$'):
             Coordinate2DForTest(x, y)
 
     def test_get_x(self):

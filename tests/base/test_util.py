@@ -3,7 +3,7 @@ from unittest import TestCase
 from graphics.base.util import check_float, check_float_positive
 
 
-class Test(TestCase):
+class TestCheckFloat(TestCase):
 
     def test_check_float_accepts_int(self):
         # arrange
@@ -29,11 +29,22 @@ class Test(TestCase):
 
     def test_check_float_fails_for_string(self):
         # arrange
-        value = "I am a string"
+        value = 'I am a string'
 
         # act & assert
-        with self.assertRaisesRegex(TypeError, 'coordinate can only be a float or int'):
-            check_float(value, 'coordinate')
+        with self.assertRaisesRegex(TypeError, '^value can only be a float or int$'):
+            check_float(value)
+
+    def test_check_float_puts_name_in_message(self):
+        # arrange
+        value = 'I am a string'
+
+        # act & assert
+        with self.assertRaisesRegex(TypeError, '^someName can only be a float or int$'):
+            check_float(value, 'someName')
+
+
+class TestCheckFloatPositive(TestCase):
 
     def test_check_float_positive_accepts_int(self):
         # arrange
@@ -59,24 +70,32 @@ class Test(TestCase):
 
     def test_check_float_positive_fails_for_string(self):
         # arrange
-        value = "I am a string"
+        value = 'I am a string'
 
         # act & assert
-        with self.assertRaisesRegex(TypeError, 'coordinate can only be a float or int'):
-            check_float(value, 'coordinate')
+        with self.assertRaisesRegex(TypeError, '^value can only be a float or int$'):
+            check_float(value)
 
     def test_check_float_positive_fails_for_zero(self):
         # arrange
         value = 0
 
         # act & assert
-        with self.assertRaisesRegex(ValueError, 'coordinate must be greater than zero'):
-            check_float_positive(value, 'coordinate')
+        with self.assertRaisesRegex(ValueError, '^value must be greater than zero$'):
+            check_float_positive(value)
 
     def test_check_float_positive_fails_for_negative(self):
         # arrange
         value = -1
 
         # act & assert
-        with self.assertRaisesRegex(ValueError, 'value must be greater than zero'):
+        with self.assertRaisesRegex(ValueError, '^value must be greater than zero$'):
             check_float_positive(value)
+
+    def test_check_float_positive_puts_name_in_message(self):
+        # arrange
+        value = -1
+
+        # act & assert
+        with self.assertRaisesRegex(ValueError, '^someName must be greater than zero$'):
+            check_float_positive(value, 'someName')
