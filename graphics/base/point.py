@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from graphics.base.coordinate2d import Coordinate2D
+from graphics.base.util import check_type
 from graphics.base.vector import Vector
 
 
@@ -13,6 +14,5 @@ class Point(Coordinate2D):
         return f"Point({self._x},{self._y})"
 
     def __add__(self, other: Vector) -> Point:
-        if not isinstance(other, Vector):
-            raise TypeError("you can only add Vector to Point")
+        check_type(other, Vector, 'other')
         return Point(self.get_x() + other.get_x(), self.get_y() + other.get_y())

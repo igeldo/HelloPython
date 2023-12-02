@@ -19,10 +19,9 @@ class Coordinate2D(ABC):
         pass
 
     def __eq__(self, other) -> bool:
-        if isinstance(other, self.__class__):
-            return self.get_x() == other.get_x() and self.get_y() == other.get_y()
-        else:
+        if not isinstance(other, self.__class__):
             return False
+        return self.get_x() == other.get_x() and self.get_y() == other.get_y()
 
     def __ne__(self, other) -> bool:
         return not self.__eq__(other)

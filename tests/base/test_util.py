@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from graphics.base.util import check_float, check_float_positive
+from graphics.base.util import check_float, check_float_positive, check_type
 
 
 class TestCheckFloat(TestCase):
@@ -99,3 +99,33 @@ class TestCheckFloatPositive(TestCase):
         # act & assert
         with self.assertRaisesRegex(ValueError, '^someName must be greater than zero$'):
             check_float_positive(value, 'someName')
+
+
+class TestCheckType(TestCase):
+
+    def test_check_type_accepts_correct_type(self):
+        # arrange
+        value = 'I am a string'
+
+        # act
+        result = check_type(value, str)
+
+        # assert
+        self.assertTrue(isinstance(result, str))
+        self.assertEqual('I am a string', result)
+
+    def test_check_type_fails_for_wrong_type(self):
+        # arrange
+        value = 'I am a string'
+
+        # act & assert
+        with self.assertRaisesRegex(TypeError, '^value can only be a float$'):
+            check_type(value, float)
+
+    def test_check_type_puts_name_in_message(self):
+        # arrange
+        value = 'I am a string'
+
+        # act & assert
+        with self.assertRaisesRegex(TypeError, '^someName can only be a float$'):
+            check_type(value, float, 'someName')

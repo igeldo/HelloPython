@@ -31,7 +31,7 @@ class TestPoint(TestCase):
         other.__class__ = Point
 
         # act & assert
-        with self.assertRaises(TypeError):
+        with self.assertRaisesRegex(TypeError, '^other can only be a Vector$'):
             self.cut + other
 
         # assert
