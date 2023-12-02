@@ -14,7 +14,7 @@ def check_float_positive(value: float, name: str = "value") -> float:
     return result
 
 
-def check_type(value: object, requested_type: Type, name: str = 'value') -> object:
+def check_type(value: object, requested_type: Type, name: str = 'value'):
     if not isinstance(value, requested_type):
         raise TypeError(f"{name} can only be a {requested_type.__name__}")
     return value
