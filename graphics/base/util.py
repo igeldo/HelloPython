@@ -1,4 +1,4 @@
-from typing import Type
+from typing import Type, TypeVar
 
 
 def check_float(value: float, name: str = "value") -> float:
@@ -14,7 +14,10 @@ def check_float_positive(value: float, name: str = "value") -> float:
     return result
 
 
-def check_type(value: object, requested_type: Type, name: str = 'value'):
+T = TypeVar("T")
+
+
+def check_type(value: T, requested_type: Type[T], name: str = 'value') -> T:
     if not isinstance(value, requested_type):
         raise TypeError(f"{name} can only be a {requested_type.__name__}")
     return value
